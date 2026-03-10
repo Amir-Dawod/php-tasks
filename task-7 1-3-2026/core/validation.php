@@ -8,6 +8,7 @@ function validateRequired($value, $fieldName)
 function validateName($name)
 {
     return  preg_match("/^[a-zA-Z ]+$/", $name) ? null : ' Name  is not valid'; 
+}
 function validateEmail($email)
 {
     return  filter_var($email, FILTER_VALIDATE_EMAIL) ? null : "Email is not valid";
@@ -57,4 +58,5 @@ function validateRegister($name, $email, $phone, $message)
         return $error;
     }
 }
+
 
