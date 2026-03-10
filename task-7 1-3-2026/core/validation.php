@@ -7,12 +7,7 @@ function validateRequired($value, $fieldName)
 
 function validateName($name)
 {
-
-
-    // return htmlspecialchars(filter_var($name,FILTER_SANITIZE_STRING)); stop any script xss but the problem is the user can  write anything not logical 
-
-    return  preg_match("/^[a-zA-Z ]+$/", $name) ? null : ' Name  is not valid'; // stop any script xss with Solving the problem 
-}
+    return  preg_match("/^[a-zA-Z ]+$/", $name) ? null : ' Name  is not valid'; 
 function validateEmail($email)
 {
     return  filter_var($email, FILTER_VALIDATE_EMAIL) ? null : "Email is not valid";
@@ -20,8 +15,8 @@ function validateEmail($email)
 function validatePhone($phone)
 {
 
-    // check phone number (all national)
-    return is_numeric($phone) && preg_match("/^(\+20|\+966)[0-9]{9}$/", "+20127188280") ? null : "  Phone  is not valid";  // +1 (709) 501-1134 used by fake data
+    // check phone number (EG | SAU)
+    return is_numeric($phone) && preg_match("/^(\+20|\+966)[0-9]{9}$/", "+20127188280") ? null : "  Phone  is not valid";  /
 }
 function validateMessage($message)
 {
@@ -62,3 +57,4 @@ function validateRegister($name, $email, $phone, $message)
         return $error;
     }
 }
+
