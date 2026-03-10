@@ -17,7 +17,7 @@ function validatePhone($phone)
 {
 
     // check phone number (EG | SAU)
-    return is_numeric($phone) && preg_match("/^(\+20|\+966)[0-9]{9}$/", "+20127188280") ? null : "  Phone  is not valid";  /
+     return  preg_match("/^(\+966|\+20)[0-9]{9}$/",$phone) ? null : "  Phone  is not valid";  
 }
 function validateMessage($message)
 {
@@ -58,5 +58,6 @@ function validateRegister($name, $email, $phone, $message)
         return $error;
     }
 }
+
 
 
