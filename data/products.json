@@ -1,0 +1,26 @@
+[
+    {
+        "id": 2,
+        "title": "mackbook",
+        "price": "10000",
+        "imageName": "macbook.png",
+        "imageTmpName": "\/home\/uploads\/phpnXCEp6",
+        "imageSize": 0
+    },
+    {
+        "id": 3,
+        "title": "mouse",
+        "price": "150",
+        "imageName": "mouse.webp",
+        "imageTmpName": "\/home\/uploads\/phpBLxcbX",
+        "imageSize": 52904
+    },
+    {
+        "id": 4,
+        "title": "lcd",
+        "price": "8000",
+        "imageName": "lcd.png",
+        "imageTmpName": "C:\\Users\\Amer Ashour\\AppData\\Local\\Temp\\phpB93.tmp",
+        "imageSize": 1778141
+    }
+]
