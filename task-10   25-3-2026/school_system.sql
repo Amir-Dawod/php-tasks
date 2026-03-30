@@ -80,18 +80,18 @@ CREATE TABLE enrollments (
 
 -- Students Data
 
-INSERT INTO students(fname, lname, email, phone) VALUES
-('ahmed','yousef','ahmed@gmail.com','01227544236'),
-('amr','yousef','amr@gmail.com','01227554236'),
-('omar','yousef','omar@gmail.com','01225554216'),
-('tarek','yousef','tarek@gmail.com','01236454426'),
-('amir','yousef','amir@gmail.com','01252544236');
+INSERT INTO students(fname, lname, email,password, phone) VALUES
+('ahmed','yousef','ahmed@gmail.com','123456','01227544236'),
+('amr','yousef','amr@gmail.com','123456','01227554236'),
+('omar','yousef','omar@gmail.com','123456','01225554216'),
+('tarek','yousef','tarek@gmail.com','123456','01236454426'),
+('amir','yousef','amir@gmail.com','123456','01252544236');
 
 -- Instructors Data
-INSERT INTO instructors(fname, lname, email, phone, specialization, salary) VALUES 
-('Mohamed','Said','mohamed@school.com','01001112223','PHP Web Development',8500),
-('Ibrahim','Adel','ibrahim@school.com','01223334445','Database Design',9000),
-('Fatma','Zaki','fatma@school.com','01115556667','UI/UX Design',7500);
+INSERT INTO instructors(fname, lname, email,password, phone, specialization, salary) VALUES 
+('Mohamed','Said','mohamed@school.com','123456','01001112223','PHP Web Development',8500),
+('Ibrahim','Adel','ibrahim@school.com','123456','01223334445','Database Design',9000),
+('Fatma','Zaki','fatma@school.com','123456','01115556667','UI/UX Design',7500);
 
 -- Courses Data
 INSERT INTO courses(title, description, price, instructor_id) VALUES 
