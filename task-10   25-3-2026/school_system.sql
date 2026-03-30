@@ -1,9 +1,9 @@
 
-
-------------------
- -- create DATABASE 
-------------------
-
+/*
+----------------
+-- create DATABASE 
+----------------
+*/
 CREATE DATABASE IF NOT  EXISTS school_system 
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci;
@@ -11,11 +11,11 @@ COLLATE utf8mb4_unicode_ci;
 use `school_system`; 
 
 
-
-------------------
- -- create Table 
-------------------
-
+/*
+-----------------
+-- create Table 
+-----------------
+*/
 
 
 -- Students
@@ -51,7 +51,7 @@ CREATE TABLE courses (
     description TEXT,
     price DECIMAL(10,2),
     instructor_id INT NOT NULL,
-    FOREIGN KEY (instructor_id) REFERENCES instructors(id)
+   CONSTRAINT fk_instructor_id FOREIGN KEY (instructor_id) REFERENCES instructors(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -64,17 +64,17 @@ CREATE TABLE enrollments (
     course_id INT NOT NULL,
     grade VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE,
-    FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+    CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE ON UPDATE CASCADE,
     UNIQUE (student_id, course_id)
 );
 
 
-
+/*
 ------------------
- --  i-nsert Data 
+-- insert Data 
 ------------------
-
+*/
 
 -- Students Data
 
