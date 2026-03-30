@@ -25,6 +25,7 @@ CREATE TABLE students (
     fname VARCHAR(50) NOT NULL,
     lname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -36,6 +37,7 @@ CREATE TABLE instructors (
     fname VARCHAR(50) NOT NULL,
     lname VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
     specialization VARCHAR(50),
     salary DECIMAL(10,2),
