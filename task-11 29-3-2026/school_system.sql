@@ -263,19 +263,19 @@ GROUP BY
 -------------------------------------------------------
 
 
-SELECT (SELECT  title   FROM courses WHERE enrollments.course_id = courses.id ) course_name  , AVG(student_id) FROM enrollments  GROUP BY course_id ;
-
-
-
- -- Another solution using JOIN
-
-
-SELECT 
-    c.title,
-    COUNT(e.student_id) AS students_count
-FROM courses c
- JOIN enrollments e ON c.id = e.course_id
-GROUP BY c.id;
+SELECT
+    AVG(student_count) AS avg_students_per_course
+FROM
+    (
+    SELECT
+        COUNT(e.student_id) AS student_count
+    FROM
+        courses c
+    LEFT JOIN enrollments e ON
+        c.id = e.course_id
+    GROUP BY
+        e.student_id
+) AS students_per_course;
 
 
 
