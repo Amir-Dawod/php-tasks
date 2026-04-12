@@ -1,5 +1,5 @@
 <?php
-if (requestMethod($_SERVER['REQUEST_METHOD'])) {
+if (requestMethod('POST')) {
     foreach ($_POST as $field => $value) {
         $$field = fieldSanitization($value);
     }
