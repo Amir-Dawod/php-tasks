@@ -1,6 +1,6 @@
 <?php
 
-if (requestMethod($_SERVER['REQUEST_METHOD'])) {
+if (requestMethod('POST')) {
     $task_id = $_POST['task_id'];
     $sql = "DELETE  FROM tasks  WHERE id='$task_id' ";
     echo $task_id;
