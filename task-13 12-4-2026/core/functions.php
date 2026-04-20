@@ -1,6 +1,5 @@
 <?php
 
-use Dom\Mysql;
 
 function requestMethod($method)
 {
@@ -63,10 +62,4 @@ function blogLogin($email, $password, $con)
     return false;
 }
 
-function getBlogs($user_id, $con)
-{
-    $sql = "SELECT * FROM  posts where user_id ='$user_id'";
-    $res =   mysqli_query($con, $sql);
-    $posts = mysqli_fetch_all($res, MYSQLI_ASSOC);
-    return $posts;
-}
+
