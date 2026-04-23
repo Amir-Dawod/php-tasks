@@ -13,10 +13,16 @@ if (requestMethod('POST')) {
         header('location:index.php?page=create-blog');
         exit();
     }
+    if (isset($_SESSION['user'])) {
 
-    if (createBlog($title, $image, $content, $con)) {
-        setMessage('success', 'added blog successfully');
-        header('location:index.php?page=blogs');
+        if (createBlog($title, $image, $content, $con)) {
+            setMessage('success', 'added blog successfully');
+            header('location:index.php?page=blogs');
+            exit();
+        }
+    } else {
+        header('location:index.php?page=login');
         exit();
     }
 }
+
