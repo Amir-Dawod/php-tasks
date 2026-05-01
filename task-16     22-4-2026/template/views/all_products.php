@@ -1,8 +1,7 @@
 <?php
 $model = new ProductModel();
 $products = $model->getAllProducts();
-var_dump($_SESSION['materials']);
-var_dump($_SESSION['publishers']);
+
 ?>
 
 <h2>All Products</h2>
