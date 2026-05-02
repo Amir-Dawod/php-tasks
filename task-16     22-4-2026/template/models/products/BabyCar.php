@@ -5,7 +5,7 @@ class BabyCar extends Product
 {
     public int $age;
     public float $weight;
-    private  array $materials ;
+    private  array $materials;
     private float  $specialTax;
 
     function __construct(string $name, float $price, string $description, string $imageName, int $age, float $weight,  float  $specialTax)
@@ -18,15 +18,13 @@ class BabyCar extends Product
 
     function displayMaterials()
     {
+
         return  $this->materials;
     }
-    function setMaterials(string $material)
+    function setMaterials(string $material, array $oldMaterials)
     {
-        if (!isset($_SESSION['materials'])) {
-            $_SESSION['materials'] = [];
-        }
-        $_SESSION['materials'][] = $material;
-        $this->materials =$_SESSION['materials'];
+       
+        $this->materials = [...$oldMaterials, $material];
     }
     function getFinalPrice()
     {

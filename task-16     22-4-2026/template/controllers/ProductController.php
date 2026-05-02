@@ -1,9 +1,11 @@
 <?php
 
 if (requestMethod('POST')) {
+
     foreach ($_POST as $field => $value) {
         $$field = fieldSanitization($value);
     }
+
     $imageName = $_FILES['image']['name'];
     $imageTmpName = $_FILES['image']['tmp_name'];
     $imageSize = $_FILES['image']['size'];
@@ -16,18 +18,25 @@ if (requestMethod('POST')) {
         exit();
     }
 
+
     $model = new ProductModel();
-    if ($type === 'book') {
+
+    if ($type === 'books') {
 
         $book = new Book($name, $price, $description, $imageName, $writer,  $color,  $supplier);
         $book->uploadImage($imageTmpName);
-        $book->setPublisher($publisher);
+        $oldPublishers = $model->getPublishers();
+        $book->setPublisher($publisher, $oldPublishers);
         $model->setProduct($book, $type);
-    } elseif ($type === 'babyCar') {
+
+    } elseif ($type === 'babyCars') {
+
         $babyCar = new BabyCar($name, $price, $description, $imageName, $age, $weight, 15);
         $babyCar->uploadImage($imageTmpName);
-        $babyCar->setMaterials($material);
+        $oldMaterials = $model->getMaterials();
+        $babyCar->setMaterials($material, $oldMaterials);
         $model->setProduct($babyCar, $type);
+
     }
 
     header('location:index.php?page=all_products');

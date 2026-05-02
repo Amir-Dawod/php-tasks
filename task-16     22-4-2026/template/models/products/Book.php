@@ -19,15 +19,9 @@ class Book extends Product
     {
         return $this->publishers[rand(0, count($this->publishers) - 1)];
     }
-    function setPublisher(string $publisher)
+    function setPublisher(string $publisher, array  $oldPublishers)
     {
-        if (!isset($_SESSION['publishers'])) {
-            $_SESSION['publishers'] = [];
-        }
-        $_SESSION['publishers'][] = $publisher;
-
-
-        $this->publishers =  $_SESSION['publishers'];
+        $this->publishers = [...$oldPublishers, $publisher];
     }
     function showAllPublishers()
     {

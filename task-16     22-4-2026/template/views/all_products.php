@@ -1,62 +1,95 @@
 <?php
 $model = new ProductModel();
-$products = $model->getAllProducts();
-
+$books = $model->getProductsWithType('books');
+$babyCars = $model->getProductsWithType('babycars');
 ?>
 
-<h2>All Products</h2>
 
+    <h2 class="text-center mb-5">All Products</h2>
 
-<?php if (!empty($products)):  ?>
-    <div class="products">
-        <?php foreach ($products as $product) : ?>
+    <!-- ================= BOOKS ================= -->
+    <section class="mb-5">
+        <h4 class="mb-4">Books</h4>
 
-            <div class="card">
-                <img src="./assets/uploads/<?= $product['imageName'] ?>" alt="Book">
+        <?php if (!empty($books)): ?>
+            <div class="row g-4 m-4">
 
-                <div class="type"> <?= $product['type'] == "book" ? "📚 Book " : "🚗 Baby Car" ?></div>
+                <?php foreach ($books as $book): ?>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-sm">
 
-                <h3><?= $product['name'] ?></h3>
+                            <img src="./assets/uploads/<?= $book['imageName'] ?>" class="card-img-top">
 
-                <div class="price"><?= $product['price'] ?></div>
-                <?php if ($product['type'] == "book") : ?>
-                    <div class="extra">Writer: <?= $product['writer'] ?></div>
-                    <div class="extra">Publisher:
-                        <ul>
-                            <?php $publishers = explode(",", $product['publishers'])  ?>
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $book['name'] ?></h5>
 
-                            <?php foreach ($publishers as $key => $publisher): ?>
-                                <li><?= $publisher ?></li>
-                            <?php endforeach; ?>
-                        </ul>
+                                <p class="text-success fw-bold">Price :<?= $book['price'] ?>$</p>
 
+                                <p class="mb-1">Writer: <?= $book['writer'] ?></p>
+
+                                <div>
+                                    <strong>Publishers:</strong>
+                                    <ul class="mb-0">
+                                        <?php $publishers = explode(",",$book['publishers']); ?> 
+                                        <?php foreach ($publishers as $publisher): ?>
+                                            <li><?= $publisher ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
+                    <?php endforeach; ?>
+                    
+                </div>
                 <?php else: ?>
-                    <div class="extra">Age: <?= $product['age'] ?></div>
-                    <div class="extra">Weight: <?= $product['weight'] ?>kg</div>
-                    <div class="extra">Material:
-                        <ul>
-                            <?php $materials = explode(",", $product['materials'])  ?>
-                            <?php foreach ($materials as $material): ?>
-                                <li><?= $material ?></li>
-
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                <?php endif; ?>
+                    <div class="alert alert-warning text-center  w-50 m-auto">
+                        No books available
             </div>
-        <?php endforeach; ?>
-    </div>
-<?php else: ?>
+            <?php endif; ?>
+        </section>
+        
+        <!-- ================= BABY CARS ================= -->
+    <section>
+        <h4 class="mb-4">Baby Cars</h4>
+        
+        <?php if (!empty($babyCars)): ?>
+            <div class="row g-4 m-4">
+                
+                <?php foreach ($babyCars as $babyCar): ?>
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-sm">
+                            
+                            <img src="./assets/uploads/<?= $babyCar['imageName'] ?>" class="card-img-top">
+                            
+                            <div class="card-body">
+                                <h5><?= $babyCar['name'] ?></h5>
+                                
+                                <p class="text-success fw-bold">Price : <?= $babyCar['price'] ?>$</p>
+                                
+                                <p>Age: <?= $babyCar['age'] ?></p>
+                                <p>Weight: <?= $babyCar['weight'] ?>kg</p>
+                                
+                                <div>
+                                    <strong>Materials:</strong>
+                                    <ul class="mb-0">
+                                        <?php $materials = explode(",",$babyCar['materials']); ?> 
+                                        <?php foreach ($materials as $material): ?>
+                                            <li><?= $material ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
 
-    <div class="d-flex justify-content-center">
-        <div class="alert alert-warning w-50 text-center">
-            No products available
-        </div>
-    </div>
-<?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
 
-
-</body>
-
-</html>
+            </div>
+        <?php else: ?>
+            <div class="alert alert-warning text-center w-50 m-auto">
+                No baby cars available
+            </div>
+        <?php endif; ?>
+    </section>

@@ -1,5 +1,3 @@
-
-
 <?php
 
 
@@ -59,5 +57,4 @@ function validateProduct(string $name, int $price, string $imageName,string $des
         return $error;
     }
 }
-
 

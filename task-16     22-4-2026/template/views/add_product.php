@@ -13,8 +13,8 @@
             <!-- Type -->
             <select id="type" name="type">
                 <option value="">Select Type</option>
-                <option value="book">Book</option>
-                <option value="babyCar">Baby Car</option>
+                <option value="books">Book</option>
+                <option value="babyCars">Baby Car</option>
             </select>
 
             <!-- Book Fields -->

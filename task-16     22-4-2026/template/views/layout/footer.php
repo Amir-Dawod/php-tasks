@@ -3,7 +3,7 @@
         let book = document.querySelector('#bookFields');
         let babyCar = document.querySelector('#babyCarFields');
         selectType.addEventListener('change', function(e) {
-            if (e.target.value == 'book') {
+            if (e.target.value == 'books') {
                 babyCar.classList.add("hidden");
                 book.classList.remove("hidden");
             } else {
