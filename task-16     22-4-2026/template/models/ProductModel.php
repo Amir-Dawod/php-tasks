@@ -80,9 +80,7 @@ class ProductModel
         $age = $product->age;
         $weight = $product->weight;
 
-        $materials = implode(',', $product->displayMaterials()); 
-
-        // Convert publishers array → string for DB storage
+        $materials = implode(',', $product->displayMaterials());  // Convert publishers array → string for DB storage
         $sql_babycar = "INSERT into babycars (`age`,`weight`,`materials`, `product_id`)   values('$age', '$weight',' $materials', '$product_id')";
         mysqli_query($this->db, $sql_babycar);
     }
