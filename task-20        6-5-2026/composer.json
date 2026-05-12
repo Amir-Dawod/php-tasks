@@ -1,0 +1,17 @@
+{
+    "name": "task/shopping_cart",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "amir-ashour"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
