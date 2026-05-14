@@ -46,7 +46,7 @@ class Cart
             return;
         }
     }
-    public function moveItem(Product $product)
+    public function removeItem(Product $product)
     {
         for ($i = 0; $i < count($this->items); $i++) {
             if ($this->items[$i]->getProduct()->getId() == $product->getId()) {
